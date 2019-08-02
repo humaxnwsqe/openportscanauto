@@ -44,7 +44,7 @@ if %strLAN%==%2 (
     ) else (
         echo "-----LAN and UDP have chosen.-----"
         ::goto _UDP
-        nmap -p 1-65535 -sS -sU -T4 -A -v -oX %1_%2_%3_%strDATE%_%strHOUR%-%strMIN%-%strSEC%_resultdel .xml %4
+        nmap -p 1-65535 -sS -sU -T4 -A -v -oX %1_%2_%3_%strDATE%_%strHOUR%-%strMIN%-%strSEC%_result.xml %4
     )  
 ) else (
     if %strTCP%==%3 (
