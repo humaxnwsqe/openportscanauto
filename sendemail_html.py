@@ -41,7 +41,7 @@ email_recipients = ['hslee4@humaxdigital.com']
 subject = 'Port scan result using Nmap' 
 
 msg = MIMEMultipart()
-msg['From'] = email_user
+msg['From'] = email_sender
 msg['To'] = ", ".join(email_recipients)
 msg['Subject'] = subject
 
@@ -74,7 +74,7 @@ text = msg.as_string()
 server = smtplib.SMTP('smtp.gmail.com',587)
 server.ehlo()
 server.starttls()
-server.login(email_user,email_password)
+server.login(email_sender,email_sender_pw)
 
-server.sendmail(email_user,email_recipients,text)
+server.sendmail(email_sender,email_recipients,text)
 server.quit()
