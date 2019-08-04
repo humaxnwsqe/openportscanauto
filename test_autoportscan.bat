@@ -44,12 +44,12 @@ timeout 10
 echo "-----------------------------------------------------"
 echo "convert from xml files to html!"
 echo "-----------------------------------------------------"
-pytest .\convert_xmltohtml.py
+python .\convert_xmltohtml.py
 echo "-----------------------------------------------------"
 echo "send html files by email!"
 echo "-----------------------------------------------------"
 timeout 10
-pytest .\sendemail_html.py
+python .\sendemail_html.py
 echo "-----------------------------------------------------"
 echo "all steps finished!"
 echo "-----------------------------------------------------"
