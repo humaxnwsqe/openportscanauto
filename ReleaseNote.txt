@@ -1,0 +1,65 @@
+<Port Scan Automaton Test Package>
+
+[Ver. 1.1]
+# Summary
+ This package was changed to choose one of Zenmap's options, 'Intense scan plus UDP' to get effective result data within time shorter than UDP all ports case.
+ And this also has an option to run not only IPv4 type but alos IPv6 so it has more options than ver. 1.0.
+ 
+ case 1) IPv4, LAN, TCP all ports
+ case 2) IPv4, LAN, UDP all ports
+ case 3) IPv4, LAN, Intense scan plus UDP
+ case 4) IPv6, LAN, TCP all ports
+ case 5) IPv6, LAN, UDP all ports
+ case 6) IPv6, LAN, Intense scan plus UDP
+ case 7) IPv4, WAN, TCP all ports
+ case 8) IPv4, WAN, UDP all ports
+ case 9) IPv4, WAN, Intense scan plus UDP
+ case 10) IPv6, WAN, TCP all ports
+ case 11) IPv6, WAN, UDP all ports
+ case 12) IPv6, WAN, Intense scan plus UDP
+
+These cases can be tested using 'LANportscanautomation.bat' and 'WANportscanautomation.bat'. 
+Default setting state is to run case 1, 3, 4, 6, 7, 9, 10, 12 so if you want to add to run UDP all ports cases, please remove 'echo' in the command line.
+
+And if you want to know scanning port list of the option, 'Intense scan plus UDP', please refer to a xml file created through nmap command execution.
+
+* Note
+. test_portscan.bat, test_autoportscan.bat are deprecated from ver 1.1 package.
+. nmapcmdlist.bat, LANportscanautomation.bat and WANportscanautomation.bat are newly included from ver 1.1 package.
+
+[Ver. 1.0]
+# Summary
+ Zenmap (nmap's GUI version) can create port scanning result as txt, xml but these types are not convenient to read so this package has made to be able to execute port scanning, create result xml, convert it to html and send it by email automatically to provide test engineer's convenience.
+
+# Details
+This package can do checking open ports of DUT about 4 cases.
+
+ case 1) LAN, TCP all ports 
+ case 2) LAN, UDP all ports
+ case 3) WAN, TCP all ports
+ case 4) WAN, UDP all ports
+
+To run this package, four type of values should be included like below:
+ value 1) DUT info (e.g. t9x, HGJ310, etc.)
+ value 2) Communication path, LAN or WAN
+ value 3) Protocol type, TCP or UDP
+ value 4) Target IP address (e.g. LAN: 192.168.x.x (default gateway), WAN: 221.140.xx.xx (DUT's WAN IP address))
+ e.g.) 'test_portscan.bat t9x LAN TCP 192.168.1.1' in test_autoportscan.bat
+
+If you want to execute these commands partially, you should make command lines what you don't want run as comment using 'echo'. 
+
+Information for sending email is located at 'sendmail_html.py'.
+
+. email_sender: an email address of sender
+. email_sender_pw: a password of sender's email address
+. email_recipients: email addresses for receivers 
+
+e.g.)
+
+email_sender = 'humaxnwXXX@gmail.com'
+email_sender_pw = 'humaxpassword'      
+email_recipients = ['xxx@xxx.com','ooo@ooo.com']         
+
+You can change these information using your information.
+
+
